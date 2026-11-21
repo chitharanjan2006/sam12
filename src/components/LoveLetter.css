@@ -1,0 +1,166 @@
+/* ============================================
+   Love Letter Section
+   ============================================ */
+
+.love-letter {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.love-letter.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section divider */
+.section-divider {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.divider-heart {
+  font-size: 2.5rem;
+  animation: heartbeat 1.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* Section title */
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  background: linear-gradient(135deg, #ff69b4, #ff1493, #dc143c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.title-emoji {
+  -webkit-text-fill-color: initial;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.15); }
+  40% { transform: scale(1); }
+  55% { transform: scale(1.1); }
+}
+
+/* Letter container */
+.letter-container {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.letter-seal {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #dc143c, #8b0000);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  z-index: 5;
+  box-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+  animation: sealPulse 2s ease-in-out infinite;
+}
+
+@keyframes sealPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(220, 20, 60, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(220, 20, 60, 0.8), 0 0 60px rgba(220, 20, 60, 0.3); }
+}
+
+/* Letter paper */
+.letter-paper {
+  background: linear-gradient(135deg, rgba(26, 5, 32, 0.9), rgba(13, 13, 13, 0.95));
+  border: 1px solid rgba(255, 20, 147, 0.2);
+  border-radius: 20px;
+  padding: 60px 50px 50px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.letter-paper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ff1493, #9b59b6, #ff1493, transparent);
+}
+
+/* Decorations */
+.letter-decoration {
+  position: absolute;
+  font-size: 1.5rem;
+  color: rgba(255, 20, 147, 0.2);
+}
+
+.top-left { top: 15px; left: 20px; }
+.top-right { top: 15px; right: 20px; transform: scaleX(-1); }
+.bottom-left { bottom: 15px; left: 20px; transform: scaleY(-1); }
+.bottom-right { bottom: 15px; right: 20px; transform: scale(-1); }
+
+/* Letter text */
+.letter-greeting {
+  font-size: 2.5rem;
+  color: #ff69b4;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
+}
+
+.letter-body {
+  font-size: 1.05rem;
+  line-height: 2;
+  color: #d4c4de;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.letter-closing {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #f0e6f6;
+  margin-top: 30px;
+  text-align: right;
+  font-style: italic;
+}
+
+.heart-glow {
+  display: inline-block;
+  animation: heartbeat 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.5));
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .letter-paper {
+    padding: 50px 25px 40px;
+  }
+
+  .letter-greeting {
+    font-size: 2rem;
+  }
+
+  .letter-body {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+}

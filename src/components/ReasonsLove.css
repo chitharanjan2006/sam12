@@ -1,0 +1,157 @@
+/* ============================================
+   Reasons Why I Love You
+   ============================================ */
+
+.reasons-love {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.reasons-love.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reasons-subtitle {
+  text-align: center;
+  color: #999;
+  margin-bottom: 40px;
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  perspective: 1000px;
+}
+
+/* Card */
+.reason-card {
+  height: 220px;
+  cursor: pointer;
+  animation: cardFadeIn 0.8s ease both;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) rotateX(10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.reason-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  overflow: hidden;
+}
+
+/* Front */
+.card-front {
+  background: linear-gradient(135deg, rgba(26, 5, 32, 0.95), rgba(45, 27, 78, 0.9));
+  border: 1px solid rgba(255, 20, 147, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.reason-card:hover .card-front {
+  border-color: rgba(255, 20, 147, 0.5);
+  box-shadow: 0 10px 40px rgba(255, 20, 147, 0.15), 0 0 30px rgba(255, 20, 147, 0.1);
+}
+
+.card-heart-bg {
+  position: absolute;
+  font-size: 8rem;
+  color: rgba(255, 20, 147, 0.04);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  animation: float 3s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.card-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f0e6f6;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Back */
+.card-back {
+  background: linear-gradient(135deg, #dc143c, #8b0000);
+  transform: rotateY(180deg);
+  text-align: center;
+}
+
+.card-back-emoji {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.card-back-text {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.card-back-hearts {
+  margin-top: 15px;
+  font-size: 0.8rem;
+  letter-spacing: 5px;
+  opacity: 0.6;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .reasons-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .reason-card {
+    height: 200px;
+  }
+}

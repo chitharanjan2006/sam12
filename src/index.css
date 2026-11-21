@@ -1,0 +1,67 @@
+/* ============================================
+   SAMRA LOVE WEBSITE - Global Styles
+   ============================================ */
+
+:root {
+  --pink: #ff69b4;
+  --dark-pink: #ff1493;
+  --deep-red: #8b0000;
+  --crimson: #dc143c;
+  --soft-purple: #9b59b6;
+  --dark-purple: #2d1b4e;
+  --black: #0a0a0a;
+  --dark-bg: #0d0d0d;
+  --gold: #ffd700;
+  --white: #fff;
+  --text-light: #f0e6f6;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--dark-bg);
+  color: var(--text-light);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--dark-pink), var(--soft-purple));
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: var(--dark-pink);
+  color: var(--white);
+}
+
+/* Utility */
+.script-font {
+  font-family: 'Great Vibes', cursive;
+}
+
+.serif-font {
+  font-family: 'Playfair Display', serif;
+}

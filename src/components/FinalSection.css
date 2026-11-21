@@ -1,0 +1,188 @@
+/* ============================================
+   Final Section
+   ============================================ */
+
+.final-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+  text-align: center;
+  padding-bottom: 100px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.final-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.final-glow-orb {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 20, 147, 0.1), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: orbFloat 8s ease-in-out infinite;
+}
+
+.final-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Stars */
+.final-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #ffd700;
+  border-radius: 50%;
+  animation: twinkle ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* Text */
+.final-line-1 {
+  font-size: 1.8rem;
+  color: #d4c4de;
+  margin-bottom: 15px;
+  animation: fadeInUp 1s ease both;
+  font-style: italic;
+}
+
+.final-line-2 {
+  font-size: 1.8rem;
+  color: #f0e6f6;
+  margin-bottom: 50px;
+  animation: fadeInUp 1s ease 0.3s both;
+  font-style: italic;
+}
+
+.final-name {
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, #ff69b4, #ff1493, #dc143c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(255, 20, 147, 0.5));
+}
+
+/* Heart with rings */
+.final-heart-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.final-heart-ring {
+  position: absolute;
+  border: 1px solid rgba(255, 20, 147, 0.2);
+  border-radius: 50%;
+  animation: ringExpand 3s ease-in-out infinite;
+}
+
+.ring-1 {
+  width: 100px;
+  height: 100px;
+  animation-delay: 0s;
+}
+
+.ring-2 {
+  width: 140px;
+  height: 140px;
+  animation-delay: 0.5s;
+}
+
+.ring-3 {
+  width: 180px;
+  height: 180px;
+  animation-delay: 1s;
+}
+
+@keyframes ringExpand {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.6;
+    border-color: rgba(255, 20, 147, 0.5);
+  }
+}
+
+.final-heart {
+  font-size: 4rem;
+  animation: heartbeat 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px rgba(255, 20, 147, 0.6));
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.15); }
+  40% { transform: scale(1); }
+  55% { transform: scale(1.1); }
+}
+
+/* Roses */
+.final-roses {
+  font-size: 1.5rem;
+  letter-spacing: 15px;
+  margin-bottom: 40px;
+  opacity: 0.7;
+  animation: fadeInUp 1s ease 0.6s both;
+}
+
+/* Footer text */
+.final-made-with {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 20px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .final-line-1,
+  .final-line-2 {
+    font-size: 1.3rem;
+    padding: 0 15px;
+  }
+
+  .final-name {
+    font-size: 2.5rem;
+  }
+
+  .final-heart {
+    font-size: 3rem;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.2); }
+}

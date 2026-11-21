@@ -1,0 +1,210 @@
+/* ============================================
+   Interactive Surprise
+   ============================================ */
+
+.surprise {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+  text-align: center;
+}
+
+.surprise.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.surprise-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.surprise-text {
+  font-size: 1.1rem;
+  color: #bbb;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+/* Button */
+.surprise-btn {
+  position: relative;
+  padding: 20px 60px;
+  background: linear-gradient(135deg, #ff1493, #9b59b6, #dc143c);
+  background-size: 200% 200%;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow:
+    0 0 30px rgba(255, 20, 147, 0.4),
+    0 0 60px rgba(155, 89, 182, 0.2);
+  animation: btnGradient 3s ease-in-out infinite;
+}
+
+@keyframes btnGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.surprise-btn:hover {
+  transform: translateY(-5px) scale(1.08);
+  box-shadow:
+    0 0 50px rgba(255, 20, 147, 0.6),
+    0 0 100px rgba(155, 89, 182, 0.3);
+}
+
+.surprise-btn:active {
+  transform: scale(0.95);
+}
+
+.surprise-btn-glow {
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #ff1493, #9b59b6, #dc143c, #ff69b4);
+  background-size: 400% 400%;
+  border-radius: 50px;
+  z-index: -1;
+  filter: blur(15px);
+  opacity: 0.6;
+  animation: btnGradient 3s ease-in-out infinite;
+}
+
+.surprise-btn-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* Overlay */
+.surprise-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, #1a0520 0%, #0a0a0a 100%);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Explosion hearts */
+.explosion-heart {
+  position: absolute;
+  color: #ff1493;
+  animation: explode ease-out forwards;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes explode {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  30% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5) rotate(360deg) translateY(-50px);
+  }
+}
+
+/* Message */
+.surprise-message {
+  text-align: center;
+  animation: surprisePop 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s both;
+  z-index: 10;
+}
+
+@keyframes surprisePop {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.surprise-sparkles {
+  font-size: 2rem;
+  letter-spacing: 20px;
+  margin-bottom: 20px;
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.surprise-name {
+  font-size: 5rem;
+  background: linear-gradient(135deg, #ff69b4, #ff1493, #dc143c, #ffd700);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 40px rgba(255, 20, 147, 0.6));
+  margin-bottom: 10px;
+}
+
+.surprise-you {
+  font-size: 1.5rem;
+  color: #f0e6f6;
+  letter-spacing: 5px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.surprise-big-heart {
+  font-size: 5rem;
+  animation: heartbeat 1s ease-in-out infinite;
+  display: inline-block;
+  filter: drop-shadow(0 0 30px rgba(255, 20, 147, 0.5));
+}
+
+.surprise-tap {
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Shimmer keyframe (reused) */
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .surprise-name {
+    font-size: 3.5rem;
+  }
+
+  .surprise-you {
+    font-size: 1rem;
+    letter-spacing: 3px;
+  }
+
+  .surprise-big-heart {
+    font-size: 3.5rem;
+  }
+
+  .surprise-btn {
+    padding: 16px 40px;
+    font-size: 1rem;
+  }
+}
